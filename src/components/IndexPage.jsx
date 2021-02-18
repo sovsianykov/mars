@@ -7,29 +7,32 @@ import Masonry from 'react-masonry-css'
 
 const IndexPage = () => {
     // Create state variables
-    const imgGrid = document.querySelector('.imgGrid')
+    const Grid = document.querySelector('.my-masonry-grid')
     let [responseData, setResponseData] = React.useState( [  Img2],[])
     let [images1, setResponseData2] = React.useState( [])
      let images =[]
     // fetches data
     const  fetchData = (e) => {
         e.preventDefault()
+        const body = document.querySelector('body')
+        const Grid = document.querySelector('.imgGrid')
 
         api.getData()
             .then((response)=>{
 
                 response.data.photos.forEach(el => {
                  let image = document.createElement('img')
-                 let div = document.createElement('div')
-                    div.className = 'imgHolder'
+
                   image.src = el.img_src
-                   div.appendChild(image)
-                   imgGrid.appendChild(div)
+                   Grid.appendChild(image)
 
 
 
 
-             })
+
+
+
+                })
                 console.log(response)
                 setResponseData2(images)
                 console.log('images1 is ' + images1)
@@ -45,18 +48,14 @@ const IndexPage = () => {
 
 
     return (
-        <div>
-            <h1>  </h1>
+        <div >
+
 
             <button onClick={(e) => fetchData(e)} type='button'>Click Me For Data</button>
-            {/*<img src={responseData}  alt=""/>*/}
-            {/*{responseData.data && responseData.data.map(date => {*/}
-            {/*    return <p>{date}</p>*/}
-            {/*})}*/}
+           <div className="imgGrid">
 
-               <div className="imgGrid">
+           </div>
 
-               </div>
 
         </div>
     )

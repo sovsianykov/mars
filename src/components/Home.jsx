@@ -9,24 +9,15 @@ import IndexPage from "./IndexPage";
 
 function Home() {
 
-    var items = [
-        {id: 1, name: 'My First Item'},
-        {id: 2, name: 'Another item'},
-        {id: 3, name: 'Third Item'},
-        {id: 4, name: 'Here is the Fourth'},
-        {id: 5, name: 'High Five'}
-    ];
 
 
 
 
 
 
-    items = items.map(function(item) {
-        return <img key={item.id} src={Img2}/>
-    });
 
-    return (<div>
+
+    return (<div >
             {/*<Masonry*/}
             {/*    breakpointCols={5}*/}
             {/*    className="my-masonry-grid"*/}
